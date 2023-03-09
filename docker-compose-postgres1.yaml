@@ -1,0 +1,18 @@
+version: '3'
+services:
+
+  db:
+    image: postgres:14.1-alpine
+    container_name: postgres_cliente
+    restart: always
+    environment:
+      - POSTGRES_USER=postgres_cliente
+      - POSTGRES_PASSWORD=postgres_cliente
+    ports:
+      - '5432:5432'
+    volumes: 
+      - db:/var/lib/postgresql/data_cliente
+
+volumes:
+  db:
+    driver: local
